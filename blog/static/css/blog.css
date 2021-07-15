@@ -1,0 +1,86 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    background-color: #fdfdfd;
+}
+
+.shadow {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #f00000;
+    border-color: #dc281e;
+}
+
+.masthead {
+    background: #3398E1;
+    height: auto;
+    padding-bottom: 15px;
+    box-shadow: 0 16px 48px #E3E7EB;
+    padding-top: 10px;
+}
+
+#content body {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    background-color: #fdfdfd;
+}
+
+#content .head_text {
+    color: white;
+}
+
+#content .card {
+    box-shadow: 0 16px 48px #E3E7EB;
+}
+
+span .current {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.share_post {
+    margin-right: 367px;
+}
+
+.share_submit {
+    margin-right: 200px;
+}
+
+.share_form p label {
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+    flex: 0 0 auto;
+    width: 16.66666667%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.share_form p input,
+textarea {
+    display: inline-block;
+    width: 70%;
+    padding: .375rem .75rem;
+    max-width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin: 0 auto;
+    font-family: inherit;
+}

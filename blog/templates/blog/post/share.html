@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %} {% load crispy_forms_tags %} {% block tiltle %} Share a post {% endblock tiltle %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 card center mb-4 mt-3 " style="padding: 20px; margin: auto;">
+            <div class="card-body">
+                {% if sent %}
+                <div class="alert alert-success" role="alert">
+                    E-mail successfully Sent
+                </div>
+                <p>"{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end"><a href="{{ post.get_absolute_url }}" class="center btn btn-info" style="margin-right: 30px;">Ok</a>{% else %}
+                </div>
+                <h3 style="margin: 0 30px;">Share " {{ post.title }}" by e-mail</h3>
+                <form action="." method="POST" style="margin-top: 1.3em;" class="share_form">
+                    {{ form.as_p }} {% csrf_token %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-right: 50px;">Submit</button>
+                        <a href="{{ post.get_absolute_url }}" class="btn btn-secondary btn-lg" style="margin-right: 190px;">cancel</a> {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

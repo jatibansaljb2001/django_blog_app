@@ -1,0 +1,59 @@
+{% extends "blog/base.html" %} 
+{% load crispy_forms_tags %} 
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3 left top">
+            <div class="card-body">
+                <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+                <p class="text-muted">{{ post.author }} | {{ post.publish }}</p>
+                <p class="card-text">{{ post.body | linebreaks }}</p>
+            </div>
+        </div>
+        {% block sidebar %} {% include 'blog/sidebar.html' %} {% endblock sidebar %}
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end share_post">
+        <a href="{% url 'blog:post_share' post.id %}" class="btn btn-primary">Share the post</a
+    >
+    <a href="{% url 'blog:post_list' %}" class="btn btn-primary">Go back</a>
+    </div>
+</div>
+
+
+<div class="col-md-8 card mb-4 mt-3 ">
+    <div class="card-body">
+        <!-- comments -->
+        {% with comments.count as total_comments %}
+        <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+        {% endwith %} {% for comment in comments %}
+        <div class="comments" style="padding: 10px;">
+            <p class="font-weight-bold">
+                {{ comment.name }}
+                <span class=" text-muted font-weight-normal">
+              {{ comment.created_on }}
+            </span>
+            </p>
+            {{ comment.body | linebreaks }}
+        </div>
+        {% empty %}
+        <p>There are no comments</p>
+        {% endfor %}
+    </div>
+</div>
+<div class="col-md-8 card mb-4  mt-3 ">
+    <div class="card-body">
+        {% if new_comment %}
+        <div class="alert alert-success" role="alert">
+            Your comment has been added
+        </div>
+        {% else %}
+        <h3>Leave a comment</h3>
+        <form method="post" style="margin-top: 1.3em;">
+            {{ comment_form.as_p }} {% csrf_token %}
+            <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+        </form>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock %}
