@@ -68,7 +68,7 @@ def post_share(request, post_id):
             message = 'Read "{}" at {}\n\n{}\'s comments:{}'.format(
                 post.title, post_url, cd['name'], cd['comments'])
             sent = send_mail(subject=subject, message=message,
-                             from_email=os.environ.get('EMAIL_USER'), recipient_list=[cd['to'], ])
+                             from_email=settings.EMAIL_HOST_USER, recipient_list=[cd['to'], ])
 
     else:
         form = EmailPostForm()
