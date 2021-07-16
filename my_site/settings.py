@@ -122,6 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = "blog/static"
+
 STATICFILES_DIRS = [
     'blog/static/',
 ]
