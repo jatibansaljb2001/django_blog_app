@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.fields.related import ForeignKey, create_many_to_many_intermediary_model
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
